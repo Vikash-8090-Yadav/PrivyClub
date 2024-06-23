@@ -8,25 +8,26 @@ import { AuthProvider } from "@arcana/auth";
 import { ProvideAuth } from "@arcana/auth-react";
 
 import Nav from "./components/nav";
-const provider = new AuthProvider(
-  "xar_test_579ae885bb13e159dcb5b7ce5c9b09ecd3898891",
-  {
-    network: "testnet",
-    theme: "light",
-    connectOptions: {
-      compact: true,
-    },
-    chainConfig: {
-      chainId: "84532"
-    }
-  }
-);
+import { PrivyProvider } from '@privy-io/react-auth';
 
+import {base, baseSepolia, mainnet, sepolia, polygon, polygonMumbai} from 'viem/chains';
 ReactDOM.render(
     <React.StrictMode>
-      <ProvideAuth provider={provider}>
-      <Nav provider={provider}/>
-    </ProvideAuth>
+
+<PrivyProvider
+      appId={"clxrjv9tl01pd13d086zgvhyl"}
+      onSuccess={(user) => console.log(`User ${user.id} logged in!`)}
+      config={{
+        // Replace this with your desired default chain
+        loginMethods: ['wallet'] ,
+        defaultChain: baseSepolia ,
+        // Replace this with a list of your desired supported chains
+        supportedChains: [ baseSepolia,base] 
+    }}
+    >
+   <Nav/>
+    </PrivyProvider>
+     
       <BrowserRouter>
         <Routes>
           <Route path="*" element={ <App /> }>

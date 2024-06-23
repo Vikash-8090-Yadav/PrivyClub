@@ -22,7 +22,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.base.org"
 
 
 
-// const provider = new ethers.providers.Web3Provider(window.ethereum);
+const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 
 
@@ -33,21 +33,7 @@ var contractPublic = null;
 const owneraddress = localStorage.getItem("filWalletAddress");
 
 
-const provider1 = new AuthProvider(
-  "xar_test_579ae885bb13e159dcb5b7ce5c9b09ecd3898891",
-  {
-    network: "testnet",
-    theme: "light",
-    connectOptions: {
-      compact: true,
-    },
-    chainConfig: {
-      chainId: "84532"
-    }
-  }
-);
 
-const provider = provider1.provider;
 
 function CreateClub() {
 
@@ -186,29 +172,29 @@ function CreateClub() {
             const GAS_MANAGER_POLICY_ID = "479c3127-fb07-4cc6-abce-d73a447d2c01";
 
 
-            // await provider.send('eth_requestAccounts', []); // <- this promps user to connect metamask
-            // const signer = provider.getSigner();
+            await provider.send('eth_requestAccounts', []); // <- this promps user to connect metamask
+            const signer = provider.getSigner();
              
 
             //   console.log("singer",signer);
 
-            const { sig } = await provider.request({
-              method: 'eth_sign',
-              params: [
-                {
-                  walletAddress, // sender account address
-                  data: 'some message data',
-                },
-              ],
-            })
-            console.log({ sig })
+            // const { sig } = await provider.request({
+            //   method: 'eth_sign',
+            //   params: [
+            //     {
+            //       walletAddress, // sender account address
+            //       data: 'some message data',
+            //     },
+            //   ],
+            // })
+            // console.log({ sig })
 
               const tx = {
                 to: marketplaceAddress,
                 data: encodedData,
           
               };
-              const txResponse = await sig.sendTransaction(tx);
+              const txResponse = await signer.sendTransaction(tx);
               const txReceipt = await txResponse.wait();
 
               notification.success({

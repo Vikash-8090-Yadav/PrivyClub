@@ -4,26 +4,22 @@ import Tg from "./toggle";
 import {Web3} from 'web3';
 
 
-
+import { usePrivy } from "@privy-io/react-auth";
 import SideMenu from './Sidemenu';
+var accountAddress= localStorage.getItem("filWalletAddress");
 
-import { useAuth } from "@arcana/auth-react";
-
-// import { AuthProvider } from '@arcana/auth';
-// import { ArcanaProvider } from '@arcana/provider';
-
-const networks = {
-  zkSyncSepoliaTestnet: {
-    chainId: `0x${Number(300).toString(16)}`,
-    chainName: "zkSyncSepoliaTestnet",
-    nativeCurrency: {
-      name: "zkSyncSepoliaTestnet",
-      symbol: "ETH",
-      decimals: 18,
-    },
-    rpcUrls: ["https://sepolia.era.zksync.dev"],
-  },
-};
+// const networks = {
+//   zkSyncSepoliaTestnet: {
+//     chainId: `0x${Number(300).toString(16)}`,
+//     chainName: "zkSyncSepoliaTestnet",
+//     nativeCurrency: {
+//       name: "zkSyncSepoliaTestnet",
+//       symbol: "ETH",
+//       decimals: 18,
+//     },
+//     rpcUrls: ["https://sepolia.era.zksync.dev"],
+//   },
+// };
 
 var accountAddress= localStorage.getItem("filWalletAddress");
 
@@ -33,122 +29,46 @@ var accountAddress= localStorage.getItem("filWalletAddress");
 
 function Nav() {
 
-  // const provider1 = provider.provider;
 
-
-
-  const { loading, isLoggedIn, provider,connect, user } = useAuth();
-
-  console.log("The provider is",provider);
-
- 
+  const { ready, authenticated, user, login, logout } = usePrivy();
 
 
 
 
-  console.log("The user is",user);
 
-  // const {address} = user;
 
   const [isOpen, setIsOpen] = useState(false);
 
 
 
-  const [loading1, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [address , setAddress] = useState('');
   const [balance , setBalance] = useState(' ');
 
+  if (!ready) {
+    return null;
+  }
 
-  const fetchBalance = async () => {
+  // console.log("The user is",user.wallet.address);
 
-//     let from = ''
 
-// async function getAccounts() {
-//   console.log('Requesting accounts')
-//   try {
-//     const accounts = await provider.request({ method: 'eth_accounts' })
-//     console.log({ accounts })
-//     from = accounts[0] // Use this account address to get wallet balance
-//   } catch (e) {
-//     console.log({ e })
-//   }
-// }
-    
-  };
+  if(user){
+    const add = user.wallet.address;
+    localStorage.setItem("filWalletAddress",add);
+
+  }
 
   
-  const onConnectClick = async () => {
-    try {
-      await connect(); // Built-in, plug & play login UI
-    } catch (err) {
-      console.log({ err });
-      // Handle error
-    }
-  };
-  
-
-
-
-
-  
-  async function logout(){
+  async function logout1(){
     alert("Logout")
-    const accounts = await  provider.request({ method: 'eth_accounts' })
+    localStorage.clear();
+    
+    window.location.reload();
 
-    console.log("The account is",accounts[0]);
-
-
-    console.log("This is under Logout")
-
-  
-    try {
-      // const auth = new AuthProvider('your-app-id'); // Initialize AuthProvider with your app ID
-      // await auth.init();
-  
-      // const provider = new ArcanaProvider(auth); // Create Arcana provider
-  
-      // Convert message to hexadecimal format
-      // const hexMessage = `0x${Buffer.from(message, 'utf8').toString('hex')}`;.
-
-      console.log(provider);
-  
-      const sig = await provider.request({
-        method: 'eth_sign',
-        params: [accounts[0],'Thhiiss'],
-      });
-      
-      console.log({ sig });
-    } catch (error) {
-      console.error('Error signing message:', error);
-    }
-  
-    // localStorage.clear();
-    // window.location.reload();
+    await logout();
     // Logout();
   }
 
-  useEffect(() => {
-
-
-    async function test(){
-      try{
-
-        if(user){
-  
-          const add = user.address;
-  
-          console.log("The adress under useeffectr is ",add);
-          localStorage.setItem("filWalletAddress",add) 
-        }
-  
-      }catch(e){
-  
-      }
-    }
-
-    test();
-  
-  }, []);
 
   console.log(accountAddress)
 
@@ -263,19 +183,19 @@ function Nav() {
               isOpen={isOpen}
               setIsOpen={setIsOpen}
               accountAddress={accountAddress}
-              logout={logout}
+              logout={logout1}
               userInfo={accountAddress}
             />
           )}
-          {accountAddress == null && !loading1 && (
+          {accountAddress == null && !loading && (
             
-            <button onClick={() => onConnectClick()}  class=" font-semibold bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">LOGIN</button>
+            <button onClick={() => login()}  class=" font-semibold bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">LOGIN</button>
             
           )}
           
      
     
-          {loading1 && <button className="btn bg-gradient-1 text-gray-900 transition ease-in-out duration-500 transform hover:scale-110">Loading...</button>}
+          {loading && <button className="btn bg-gradient-1 text-gray-900 transition ease-in-out duration-500 transform hover:scale-110">Loading...</button>}
         </div>
   </div>
 </>

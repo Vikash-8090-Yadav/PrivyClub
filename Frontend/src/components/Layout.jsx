@@ -9,7 +9,7 @@ import Nav from "./nav";
 
 const Layout = () => {
   return (
-    <div className="">
+    <div className="">  
       <ToastContainer/>
       <Outlet />
     </div>
