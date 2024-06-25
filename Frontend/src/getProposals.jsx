@@ -53,7 +53,7 @@ window.changeProposal=(proposalId)=> {
           contractNameHeader.innerHTML = 'Description';
           theadTr.appendChild(contractNameHeader);
           var contractTickerHeader = document.createElement('th');
-          contractTickerHeader.innerHTML = 'Amount ( XCR )';
+          contractTickerHeader.innerHTML = 'Amount ( ETH )';
           theadTr.appendChild(contractTickerHeader);
           
   

@@ -86,8 +86,19 @@ function CreateClub() {
     console.log(response.data)
 }
 
+const check = localStorage.getItem("filWalletAddress");
+
+
 
   async function createClub() {
+
+    if(!check){
+      alert("Please Login First");
+  
+      return;
+    }
+
+
     toast.info('DAO Creation intiated ...', {
       position: "top-right",
       autoClose: 15000,

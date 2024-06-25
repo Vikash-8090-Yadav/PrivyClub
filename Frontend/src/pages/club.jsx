@@ -26,11 +26,18 @@ async function getContract(userAddress) {
     }
   }
 
-
+const check = localStorage.getItem("filWalletAddress");
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 async function contributeClub() {
+
+
+  if(!check){
+    alert("Please Login First");
+
+    return;
+  }
  
   toast.info('Contribution intiated ...', {
     position: "top-right",
@@ -157,6 +164,14 @@ async function contributeClub() {
 }
 
 async function leaveClub() {
+
+  if(!check){
+    alert("Please Login First");
+
+    return;
+  }
+
+
   $('.successJoinLeaveClub').css('display','none');
   $('.errorJoinLeaveClub').css('display','none');
   var clubId = localStorage.getItem("clubId");
@@ -254,6 +269,14 @@ function Club() {
 
 
   async function joinClub() {
+
+    if(!check){
+      alert("Please Login First");
+  
+      return;
+    }
+
+
     $('.successJoinLeaveClub').css('display','none');
     $('.errorJoinLeaveClub').css('display','none');
     var clubId = localStorage.getItem("clubId");
@@ -426,7 +449,7 @@ function Club() {
                     <div className="row no-gutters align-items-center">
                       <div className="col mr-2">
                         <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                          Club Balance (XCR)
+                          Club Balance (ETH)
                         </div>
                         <div className="h5 mb-0 font-weight-bold text-gray-800 club_balance">
                           -
@@ -602,7 +625,7 @@ function Club() {
                   </div>
                   <div className="card-body">
                     <p>
-                      Amount of XCR: <br />
+                      Amount of ETH: <br />
                       <input
                         type="number"
                         id="aeAmount"

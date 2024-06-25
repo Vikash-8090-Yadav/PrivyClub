@@ -9,7 +9,12 @@ import {Web3} from 'web3';
 
 const web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.base.org"));
 
+const check = localStorage.getItem("filWalletAddress");
+
 function JoinClub() {
+
+  
+
   const navigate = useNavigate();
   function Logout(){
     web3.eth.accounts.wallet.clear();

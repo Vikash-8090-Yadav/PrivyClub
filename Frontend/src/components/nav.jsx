@@ -48,6 +48,7 @@ function Nav() {
   if (!ready) {
     return null;
   }
+  
 
   // console.log("The user is",user.wallet.address);
 
@@ -64,9 +65,6 @@ function Nav() {
     localStorage.clear();
     
     window.location.reload();
-
-    await logout();
-    // Logout();
   }
 
 

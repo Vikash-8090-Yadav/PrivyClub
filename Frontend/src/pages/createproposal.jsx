@@ -59,6 +59,9 @@ async function Registerjob(){
     theme: "dark",
     });
 }
+
+const check = localStorage.getItem("filWalletAddress");
+
 function CreateProposal() {
 
 
@@ -68,8 +71,17 @@ function CreateProposal() {
   const [amount, setAmount] = useState('');
   const [destination, setDestination] = useState('');
 
+
+
   
   async function createProposal() {
+
+
+    if(!check){
+      alert("Please Login First");
+  
+      return;
+    }
     
     var walletAddress = localStorage.getItem("filWalletAddress");
     // alert(walletAddress) /// /////
@@ -341,7 +353,7 @@ function CreateProposal() {
                   <div className="row no-gutters align-items-center">
                     <div className="col mr-2">
                       <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        Club Balance (XCR)
+                        Club Balance (ETH)
                       </div>
                       <div className="h5 mb-0 font-weight-bold text-gray-800 club_balance">
                         -
@@ -439,7 +451,7 @@ onChange={(e) => setDestination(e.target.value)}
                         placeholder="Enter the sepolia destination address: 0x....."
                       />{" "}
                       <br />
-                      Amount (in XCR):{" "}
+                      Amount (in ETH):{" "}
                       <input
                         type="number"
                         id="proposal_amount"
