@@ -64,7 +64,7 @@ function JoinClub() {
           <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-laugh-wink" />
           </div>
-        <div className="sidebar-brand-text mx-3">One Dao</div>
+        <div className="sidebar-brand-text mx-3">Privy Club</div>
         </a>
         {/* Divider */}
         <hr className="sidebar-divider my-0" />
@@ -118,7 +118,7 @@ function JoinClub() {
                     <div className="row no-gutters align-items-center">
                       <div className="col mr-2">
                         <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                          Balance (One Dao)</div>
+                          Balance (ETH)</div>
                         <div className="h5 mb-0 font-weight-bold text-gray-800 view_balance_address">0</div>
                       </div>
                       <div className="col-auto">
