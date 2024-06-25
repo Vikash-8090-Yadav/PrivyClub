@@ -62,6 +62,7 @@ function Nav() {
   
   async function logout1(){
     alert("Logout")
+    
     localStorage.clear();
     
     window.location.reload();
