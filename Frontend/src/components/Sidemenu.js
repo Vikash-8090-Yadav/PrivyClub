@@ -19,12 +19,10 @@ function SideMenu({ isOpen, setIsOpen, smartAccount, logout, address }) {
   const address1 = localStorage.getItem("filWalletAddress");
 
   function hndclck(){
-    window.open(`https://testnet.crossvaluescan.com/address/${address1}`, '_blank');
+    window.open(`https://base-sepolia.blockscout.com/address/${address1}`, '_blank');
   }
 
-  function testclk(){
-    window.open('https://docs.crossvalue.io/testnet/claim-kura-testnet-xcr', '_blank');
-  }
+  
 
   const [value, setValue] = useState(0);
   const [value1, setValue1] = useState(0);
@@ -112,7 +110,7 @@ close
                       <div className='flex mml '>
                       <EthBadge className="text-white" address={accountAddress} />
                       <button  className="btn bg-blue-500  text-white  px-4 rounded-full" onClick={hndclck}>
-                       View on CVC explorer
+                       View on Base  explorer
                         
                       </button>
                       </div>
@@ -120,9 +118,7 @@ close
                       ${parseFloat(value1).toFixed(2)}
                       
                       </div>
-                      <button onClick={() => testclk()} className="bg-blue-500 mb-3 text-white py-2 px-4 rounded-full w-full">
-                        Get Faucet
-                      </button>
+                      
                       <button onClick={() => handleLogout()} className="bg-blue-500 text-white py-2 px-4 rounded-full w-full">
                         Logout
                       </button>

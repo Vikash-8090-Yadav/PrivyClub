@@ -109,7 +109,7 @@ async function runProposal(event) {
                   message: 'Transaction Successful',
                   description: (
                     <div>
-                      Transaction Hash: <a href={`https://testnet.crossvaluescan.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
+                      Transaction Hash: <a href={`https://base-sepolia.blockscout.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
                     </div>
                   )
                 });
@@ -159,7 +159,7 @@ async function runProposal(event) {
               message: 'Transaction Successful',
               description: (
                 <div>
-                  Transaction Hash: <a href={`https://testnet.crossvaluescan.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
+                  Transaction Hash: <a href={`https://base-sepolia.blockscout.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
                 </div>
               )
             });
@@ -300,7 +300,7 @@ async function voteOnProposal() {
                 message: 'Transaction Successful',
                 description: (
                   <div>
-                    Transaction Hash: <a href={`https://testnet.crossvaluescan.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
+                    Transaction Hash: <a href={`https://base-sepolia.blockscout.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
                   </div>
                 )
               });

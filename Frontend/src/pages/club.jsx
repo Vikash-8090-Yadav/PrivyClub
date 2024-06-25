@@ -111,7 +111,7 @@ async function contributeClub() {
                 message: 'Transaction Successful',
                 description: (
                   <div>
-                    Transaction Hash: <a href={`https://testnet.crossvaluescan.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
+                    Transaction Hash: <a href={`https://base-sepolia.blockscout.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
                   </div>
                 )
               });
@@ -200,7 +200,7 @@ async function leaveClub() {
                 message: 'Transaction Successful',
                 description: (
                   <div>
-                    Transaction Hash: <a href={`https://testnet.crossvaluescan.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
+                    Transaction Hash: <a href={`https://base-sepolia.blockscout.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
                   </div>
                 )
               });
@@ -301,7 +301,7 @@ function Club() {
                 message: 'Transaction Successful',
                 description: (
                   <div>
-                    Transaction Hash: <a href={`https://testnet.crossvaluescan.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
+                    Transaction Hash: <a href={`https://base-sepolia.blockscout.com/tx/${txReceipt.transactionHash}`} target="_blank" rel="noopener noreferrer">{txReceipt.transactionHash}</a>
                   </div>
                 )
               });
