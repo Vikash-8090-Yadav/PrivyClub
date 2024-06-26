@@ -2,9 +2,9 @@
 
 
 
-## This dapp is live :https://arc-dao.vercel.app/
+## This dapp is live : https://privy-club.vercel.app/
 
-## Demo Video:  https://youtu.be/ImXcE-UEySo?si=vztxMtqD1EH_4hKX
+## Demo Video:  https://youtu.be/NjeZVx_PjjQ?si=v9BbwSCxffd4ImqM
 
 
 # Smart contract  -  0xEf75f5dcaA00c6247CA19d06f2DDCC3D73DC5Ef2
